@@ -3,273 +3,360 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>softtopiaweb</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <!-- build:css(.tmp) styles/main.css -->
-        <link rel="stylesheet" href="styles/bootstrap.css">
-        <link rel="stylesheet" href="styles/main.css">
-	    <link rel="stylesheet" type="text/css" href="styles/wide.css" id="layout">
-	    <link rel="stylesheet" type="text/css" href="styles/style.css">
-    	<link rel="stylesheet" type="text/css" href="styles/colors/default.css" id="colors">
-	    
-        
-        <!-- endbuild -->
-    </head>
-    <body ng-app="softtopiawebApp" ng-controller="MainController">
-        <!--[if lt IE 10]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-    <div class="development"></div>
-       <!--  <div class="development"></div>
-        <nav class="navbar navbar-default" role="navigation">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                  <a class="navbar-brand" href="#"><span translate="global.title">softtopiaweb</span></a>
-                </div>
-                <div class="collapse navbar-collapse" id="navbar-collapse" ng-switch="authenticated">
-                    <ul class="nav navbar-nav nav-pills navbar-right">
-                        <li>
-                            <a href="#">
-                                <span class="glyphicon glyphicon-home"></span>
-                                <span translate="global.menu.home">Home</span>
-                            </a>
-                        </li>
-                        <li ng-switch-when="true" class="dropdown pointer">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;">
-                                <span>
-                                    <span class="glyphicon glyphicon-th-list"></span>
-                                    <span class="hidden-tablet" translate="global.menu.entities.main">
-                                        Entities
-                                    </span>
-                                    <b class="caret"></b>
-                                </span>
-                            </a>
-                            <ul class="dropdown-menu" ng-controller="MenuController">
-                                -- JHipster will add entities to the menu here --
-                            </ul>
-                        </li>
-                        <li class="dropdown pointer">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;">
-                                <span>
-                                    <span class="glyphicon glyphicon-user"></span>
-                                    <span class="hidden-tablet" translate="global.menu.account.main">
-                                        Account
-                                    </span>
-                                    <b class="caret"></b>
-                                </span>
-                            </a>
-                            <ul class="dropdown-menu" ng-controller="MenuController">
-                                <li ng-switch-when="true"><a href="#/settings"><span class="glyphicon glyphicon-wrench"></span>
-                                    &#xA0;<span translate="global.menu.account.settings">Settings</span></a></li>
-                                <li ng-switch-when="true"><a href="#/password"><span class="glyphicon glyphicon-lock"></span>
-                                    &#xA0;<span translate="global.menu.account.password">Password</span></a></li>
-                                <li ng-switch-when="true"><a href="#/sessions"><span class="glyphicon glyphicon-cloud"></span>
-                                    &#xA0;<span translate="global.menu.account.sessions">Sessions</span></a></li>
-                                <li ng-switch-when="true"><a href="#/logout"><span class="glyphicon glyphicon-log-out"></span>
-                                    &#xA0;<span translate="global.menu.account.logout">Log out</span></a></li>
-                                <li ng-switch-when="false"><a href="#/login"><span class="glyphicon glyphicon-log-in"></span>
-                                    &#xA0;<span translate="global.menu.account.login">Authenticate</span></a></li>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>softtopiaweb</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/bootstrap.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" type="text/css" href="styles/wide.css" id="layout">
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <link rel="stylesheet" type="text/css" href="styles/colors/default.css" id="colors">
 
-                                <li ng-switch-when="false"><a href="#/register"><span class="glyphicon glyphicon-plus-sign"></span>
-                                    &#xA0;<span translate="global.menu.account.register">Register</span></a></li>
-                            </ul>
-                        </li>
-                        <li ng-switch-when="true" ng-show="isAuthorized(userRoles.admin)" class="dropdown pointer" ng-controller="AdminController">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;">
+
+    <!-- endbuild -->
+</head>
+<body ng-app="softtopiawebApp" ng-controller="MainController">
+<!--[if lt IE 10]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+<div class="development"></div>
+<!--  <div class="development"></div>
+ <nav class="navbar navbar-default" role="navigation">
+     <div class="container">
+         <div class="navbar-header">
+             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                 <span class="sr-only">Toggle navigation</span>
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+             </button>
+           <a class="navbar-brand" href="#"><span translate="global.title">softtopiaweb</span></a>
+         </div>
+         <div class="collapse navbar-collapse" id="navbar-collapse" ng-switch="authenticated">
+             <ul class="nav navbar-nav nav-pills navbar-right">
+                 <li>
+                     <a href="#">
+                         <span class="glyphicon glyphicon-home"></span>
+                         <span translate="global.menu.home">Home</span>
+                     </a>
+                 </li>
+                 <li ng-switch-when="true" class="dropdown pointer">
+                     <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;">
+                         <span>
+                             <span class="glyphicon glyphicon-th-list"></span>
+                             <span class="hidden-tablet" translate="global.menu.entities.main">
+                                 Entities
+                             </span>
+                             <b class="caret"></b>
+                         </span>
+                     </a>
+                     <ul class="dropdown-menu" ng-controller="MenuController">
+                         -- JHipster will add entities to the menu here --
+                     </ul>
+                 </li>
+                 <li class="dropdown pointer">
+                     <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;">
+                         <span>
+                             <span class="glyphicon glyphicon-user"></span>
+                             <span class="hidden-tablet" translate="global.menu.account.main">
+                                 Account
+                             </span>
+                             <b class="caret"></b>
+                         </span>
+                     </a>
+                     <ul class="dropdown-menu" ng-controller="MenuController">
+                         <li ng-switch-when="true"><a href="#/settings"><span class="glyphicon glyphicon-wrench"></span>
+                             &#xA0;<span translate="global.menu.account.settings">Settings</span></a></li>
+                         <li ng-switch-when="true"><a href="#/password"><span class="glyphicon glyphicon-lock"></span>
+                             &#xA0;<span translate="global.menu.account.password">Password</span></a></li>
+                         <li ng-switch-when="true"><a href="#/sessions"><span class="glyphicon glyphicon-cloud"></span>
+                             &#xA0;<span translate="global.menu.account.sessions">Sessions</span></a></li>
+                         <li ng-switch-when="true"><a href="#/logout"><span class="glyphicon glyphicon-log-out"></span>
+                             &#xA0;<span translate="global.menu.account.logout">Log out</span></a></li>
+                         <li ng-switch-when="false"><a href="#/login"><span class="glyphicon glyphicon-log-in"></span>
+                             &#xA0;<span translate="global.menu.account.login">Authenticate</span></a></li>
+
+                         <li ng-switch-when="false"><a href="#/register"><span class="glyphicon glyphicon-plus-sign"></span>
+                             &#xA0;<span translate="global.menu.account.register">Register</span></a></li>
+                     </ul>
+                 </li>
+                 <li ng-switch-when="true" ng-show="isAuthorized(userRoles.admin)" class="dropdown pointer" ng-controller="AdminController">
+                     <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;">
+                         <span>
+                             <span class="glyphicon glyphicon-tower"></span>
+                             <span class="hidden-tablet" translate="global.menu.admin">Admin</span>
+                             <b class="caret"></b>
+                         </span>
+                     </a>
+                     <ul class="dropdown-menu">
+                         <li><a href="#/metrics"><span class="glyphicon glyphicon-dashboard"></span>
+                             &#xA0;<span translate="global.menu.account.metrics">Metrics</span></a></li>
+                         <li><a href="#/health"><span class="glyphicon glyphicon-heart"></span>
+                             &#xA0;<span translate="global.menu.account.health">Health</span></a></li>
+                         <li><a href="#/audits"><span class="glyphicon glyphicon-bell"></span>
+                             &#xA0;<span translate="global.menu.account.audits">Audits</span></a></li>
+                         <li><a href="#/logs"><span class="glyphicon glyphicon-tasks"></span>
+                             &#xA0;<span translate="global.menu.account.logs">Logs</span></a></li>
+                         <li><a href="#/docs"><span class="glyphicon glyphicon-book"></span>
+                             &#xA0;<span translate="global.menu.account.apidocs">API Docs</span></a></li>
+                     </ul>
+                 </li>
+                 <li class="dropdown pointer" ng-controller="LanguageController">
+                     <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;">
+                         <span>
+                             <span class="glyphicon glyphicon-flag"></span>
+                             <span class="hidden-tablet" translate="global.menu.language">Language</span>
+                             <b class="caret"></b>
+                         </span>
+                     </a>
+                     <ul class="dropdown-menu">
+                         <li active-menu="{{key}}" ng-repeat="(key, language) in languages">
+                             <a href="javascript:;" ng-click="changeLanguage(key)">{{language}}</a>
+                         </li>
+                     </ul>
+                 </li>
+             </ul>
+         </div>
+     </div>
+ </nav> -->
+<!-- Wrapper Start -->
+<div id="wrapper" class="container-fluid">
+
+<!-- Header -->
+<div class="ie-dropdown-fix" >
+    <!-- Header -->
+    <div class="row" id="header">
+        <!-- Logo -->
+        <div class="col-md-7">
+            <a href="#"><img src="images/logo.png" alt="logo" /></a>
+        </div>
+
+        <!-- Social / Contact -->
+        <div class="col-md-5 pull-right">
+            <!-- Social Icons -->
+            <ul class="social-icons">
+                <li class="facebook"><a href="http://www.facebook.com/jordi.fernandez.3597">Facebook</a></li>
+                <li class="twitter"><a href="http://witter.com/jordiferm">Twitter</a></li>
+                <li class="linkedin"><a href="http://es.linkedin.com/pub/jordi-fern%C3%A0ndez/1b/675/5/">LinkedIn</a></li>
+                <li class="pintrest"><a href="http://pinterest.com/jordifm/">Pintrest</a></li>
+                <li class="googleplus"><a href="http://plus.google.com/u/0/101299402231531231596"></a></li>
+                <!--<li class="delicious"><a href="http://delicious.com/jordifm"></a><i>-->
+                <li class="evernote"><a href="http://www.evernote.com/pub/jordiferm/public"></a><li>
+                <li class="skype"><a href="skype:jordi.softtopia?call"></a><li>
+            </ul>
+            <!-- Contact Details -->
+            <div id="contact-top">
+                <ul>
+                    <li><i class="icon-envelope"></i><a href="#">j@softtopia.com</a></li>
+                    <li><i class="icon-user"></i>+34 633 271 065</li>
+                </ul>
+            </div>
+
+        </div>
+
+
+    </div>
+    <!-- Header / End -->
+
+    <!-- Navigation -->
+    <div id="navigation" class="">
+        <ul id="nav" ng-switch="authenticated">
+
+            <li><a href="/" class="active">Home</a></li>
+
+            <li><a href="#">About Me</a>
+                <ul>
+                    <li><a href="#">Profile</a></li>
+                    <li><a href="#">Publications</a></li>
+                    <li><a href="#">Background</a></li>
+
+                </ul>
+            </li>
+            <li><a href="#">Projects</a>
+                <ul>
+                    <li><a href="#">Computer vision</a></li>
+                    <li><a href="http://www.delsys.net/soluciones_ADA_Bussines.php?ada=1&leng=2" target="_blank">Delsys Ada ERP</a></li>
+                    <li><a href="#">Photo finish software</a></li>
+                    <li><a href="http://www.helpmeproject.com" target="_blank">HelpMeProject</a></li>
+                    <!-- TODO Pàgina explicant els drivers de DNP --->
+                    <li><a href="http://gimp-print.sourceforge.net/index.php" target="_blank">Printer drivers</a></li>
+                    <li><a href="http://www.mycolorbox.net" target="_blank">Color Management</a></li>
+                    <li><a href="http://arctecno.herokuapp.com" target="_blank">Project management WepApps</a></li>
+                </ul>
+            </li>
+
+            <li><a href="blog.html">Technologies</a>
+                <ul>
+                    <li><a href="http://qt.digia.com/" target="_blank">Qt</a></li>
+                    <li><a href="http://http://www.playframework.com/" target="_blank">Play framework</a></li>
+                    <!-- TODO Explicar tecnologies dominades .NET, Android, Html5 i Sql, Mongo, ... --->
+                    <li><a href="#">.NET</a></li>
+                    <li><a href="#">Android</a></li>
+                    <li><a href="#">Html5</a></li>
+                    <li><a href="#">Databases</a></li>
+                </ul>
+            </li>
+
+            <li><a href="blog.html">Blog</a>
+                <ul>
+                    <li><a href="blog_post.html">Single Post</a></li>
+                </ul>
+            </li>
+
+            <li><a href="#" ng-switch-when="true" >User</a>
+                <ul>
+                    <li ><a href="#/settings"><span class="glyphicon glyphicon-wrench"></span>
+                        &#xA0;<span translate="global.menu.account.settings">Settings</span></a></li>
+                    <li ><a href="#/password"><span class="glyphicon glyphicon-lock"></span>
+                        &#xA0;<span translate="global.menu.account.password">Password</span></a></li>
+                    <li ><a href="#/sessions"><span class="glyphicon glyphicon-cloud"></span>
+                        &#xA0;<span translate="global.menu.account.sessions">Sessions</span></a></li>
+                    <li ><a href="#/logout"><span class="glyphicon glyphicon-log-out"></span>
+                        &#xA0;<span translate="global.menu.account.logout">Log out</span></a></li>
+                    <li ng-switch-when="false"><a href="#/login"><span class="glyphicon glyphicon-log-in"></span>
+                        &#xA0;<span translate="global.menu.account.login">Authenticate</span></a></li>
+                    <li ng-switch-when="false"><a href="#/register"><span class="glyphicon glyphicon-plus-sign"></span>
+                        &#xA0;<span translate="global.menu.account.register">Register</span></a></li>
+                </ul>
+            </li>
+            <li><a href="#" ng-switch-when="false" >User</a>
+                <ul>
+                    <li ><a href="#/login"><span class="glyphicon glyphicon-log-in"></span>
+                        &#xA0;<span translate="global.menu.account.login">Login</span></a></li>
+                    <li ><a href="#/register"><span class="glyphicon glyphicon-plus-sign"></span>
+                        &#xA0;<span translate="global.menu.account.register">Register</span></a></li>
+                </ul>
+            </li>
+            <li ng-switch-when="true" ng-show="isAuthorized(userRoles.admin)" class="dropdown pointer" ng-controller="AdminController">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;">
                                 <span>
                                     <span class="glyphicon glyphicon-tower"></span>
                                     <span class="hidden-tablet" translate="global.menu.admin">Admin</span>
                                     <b class="caret"></b>
                                 </span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#/metrics"><span class="glyphicon glyphicon-dashboard"></span>
-                                    &#xA0;<span translate="global.menu.account.metrics">Metrics</span></a></li>
-                                <li><a href="#/health"><span class="glyphicon glyphicon-heart"></span>
-                                    &#xA0;<span translate="global.menu.account.health">Health</span></a></li>
-                                <li><a href="#/audits"><span class="glyphicon glyphicon-bell"></span>
-                                    &#xA0;<span translate="global.menu.account.audits">Audits</span></a></li>
-                                <li><a href="#/logs"><span class="glyphicon glyphicon-tasks"></span>
-                                    &#xA0;<span translate="global.menu.account.logs">Logs</span></a></li>
-                                <li><a href="#/docs"><span class="glyphicon glyphicon-book"></span>
-                                    &#xA0;<span translate="global.menu.account.apidocs">API Docs</span></a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown pointer" ng-controller="LanguageController">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;">
-                                <span>
-                                    <span class="glyphicon glyphicon-flag"></span>
-                                    <span class="hidden-tablet" translate="global.menu.language">Language</span>
-                                    <b class="caret"></b>
-                                </span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li active-menu="{{key}}" ng-repeat="(key, language) in languages">
-                                    <a href="javascript:;" ng-click="changeLanguage(key)">{{language}}</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav> -->
-<!-- Wrapper Start -->
-<div id="wrapper" class="container-fluid">
-
-    <!-- Header -->
-    <div class="ie-dropdown-fix" >
-        <!-- Header -->
-        <div class="row" id="header">
-            <!-- Logo -->
-            <div class="col-md-7">
-                <a href="#"><img src="images/logo.png" alt="logo" /></a>
-            </div>
-
-            <!-- Social / Contact -->
-            <div class="col-md-5 pull-right">
-                <!-- Social Icons -->
-                <ul class="social-icons">
-                    <li class="facebook"><a href="http://www.facebook.com/jordi.fernandez.3597">Facebook</a></li>
-                    <li class="twitter"><a href="http://witter.com/jordiferm">Twitter</a></li>
-                    <li class="linkedin"><a href="http://es.linkedin.com/pub/jordi-fern%C3%A0ndez/1b/675/5/">LinkedIn</a></li>
-                    <li class="pintrest"><a href="http://pinterest.com/jordifm/">Pintrest</a></li>
-                    <li class="googleplus"><a href="http://plus.google.com/u/0/101299402231531231596"></a></li>
-                    <!--<li class="delicious"><a href="http://delicious.com/jordifm"></a><i>-->
-                    <li class="evernote"><a href="http://www.evernote.com/pub/jordiferm/public"></a><li>
-                    <li class="skype"><a href="skype:jordi.softtopia?call"></a><li>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="#/metrics"><span class="glyphicon glyphicon-dashboard"></span>
+                        &#xA0;<span translate="global.menu.account.metrics">Metrics</span></a></li>
+                    <li><a href="#/health"><span class="glyphicon glyphicon-heart"></span>
+                        &#xA0;<span translate="global.menu.account.health">Health</span></a></li>
+                    <li><a href="#/audits"><span class="glyphicon glyphicon-bell"></span>
+                        &#xA0;<span translate="global.menu.account.audits">Audits</span></a></li>
+                    <li><a href="#/logs"><span class="glyphicon glyphicon-tasks"></span>
+                        &#xA0;<span translate="global.menu.account.logs">Logs</span></a></li>
+                    <li><a href="#/docs"><span class="glyphicon glyphicon-book"></span>
+                        &#xA0;<span translate="global.menu.account.apidocs">API Docs</span></a></li>
                 </ul>
-
-                <!-- Contact Details -->
-                <div id="contact-top">
-                    <ul>
-                        <li><i class="icon-envelope"></i><a href="#">j@softtopia.com</a></li>
-                        <li><i class="icon-user"></i>+34 633 271 065</li>
-                    </ul>
-                </div>
-
-            </div>
-
-        </div>
-        <!-- Header / End -->
-
-        <!-- Navigation -->
-        <div id="navigation" class="">
-            <ul id="nav">
-
-                <li><a href="/" class="active">Home</a></li>
-
-                <li><a href="#">About Me</a>
-                    <ul>
-                        <li><a href="#">Profile</a></li>
-                        <li><a href="#">Publications</a></li>
-                        <li><a href="#">Background</a></li>
-
-                    </ul>
-                </li>
-                <li><a href="#">Projects</a>
-                    <ul>
-                        <li><a href="#">Computer vision</a></li>
-                        <li><a href="http://www.delsys.net/soluciones_ADA_Bussines.php?ada=1&leng=2" target="_blank">Delsys Ada ERP</a></li>
-                        <li><a href="#">Photo finish software</a></li>
-                        <li><a href="http://www.helpmeproject.com" target="_blank">HelpMeProject</a></li>
-                        <!-- TODO Pàgina explicant els drivers de DNP --->
-                        <li><a href="http://gimp-print.sourceforge.net/index.php" target="_blank">Printer drivers</a></li>
-                        <li><a href="http://www.mycolorbox.net" target="_blank">Color Management</a></li>
-                        <li><a href="http://arctecno.herokuapp.com" target="_blank">Project management WepApps</a></li>
-                    </ul>
-                </li>
-
-                <li><a href="blog.html">Technologies</a>
-                    <ul>
-                        <li><a href="http://qt.digia.com/" target="_blank">Qt</a></li>
-                        <li><a href="http://http://www.playframework.com/" target="_blank">Play framework</a></li>
-                            <!-- TODO Explicar tecnologies dominades .NET, Android, Html5 i Sql, Mongo, ... --->
-                        <li><a href="#">.NET</a></li>
-                        <li><a href="#">Android</a></li>
-                        <li><a href="#">Html5</a></li>
-                        <li><a href="#">Databases</a></li>
-                    </ul>
-                </li>
-                    
-                <li><a href="blog.html">Blog</a>
-                    <ul>
-                        <li><a href="blog_post.html">Single Post</a></li>
-                    </ul>
-                </li>
-
-            </ul>
-
-        </div>
-        <div class="nav-shadow"></div>
-        <div class="clear"></div>
+            </li>
+        </ul>
 
     </div>
-    <!-- Navigation / End -->
-        
-        <div class="container">
-            <div class="well" ng-view=""></div>
+    <div class="nav-shadow"></div>
+    <div class="clear"></div>
 
-            <div class="footer">
-                <p translate="footer">This is your footer</p>
+</div>
+<!-- Navigation / End -->
+
+    <div class="container">
+        <div class="well" ng-view=""></div>
+    </div>
+</div>
+<!-- Footer -->
+<div style="position:absolute; bottom:0;width: 100%">
+    <!-- Footer Top -->
+    <div id="footer" class="container-fluid paddingbottom"  >
+
+
+        <div class="row">
+
+            <!-- About -->
+            <div class="col-md-4">
+                <div class="footer-headline"><h4>About Us</h4></div>
+                <p>Softtopia is an open source company. We're software engineers, architects and specialists.</p>
+                <img src="images/logo-small.png" class="client-logo">
             </div>
-        </div> 
+        </div>
 
-        <!-- Google Analytics: uncomment and change UA-XXXXX-X to be your site's ID.
-        <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='//www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X');ga('send','pageview');
-        </script>
+    </div>
+    <!-- Footer / Bottom -->
+    <div class="container-fluid" style="background: #111;padding:4px;text-align: center;">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="footer-bottom">
+                    © Copyright 2012 by <a href="#">Softtopia</a>. All rights reserved.
+
+                    <div id="scroll-top-top"><a href="#" title="Go to Top"></a></div>
+                </div>
+            </div>
+        </div>
+        <!-- <li class="dropdown pointer" ng-controller="LanguageController">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;">
+                            <span>
+                                <span class="glyphicon glyphicon-flag"></span>
+                                <span class="hidden-tablet" translate="global.menu.language">Language</span>
+                                <b class="caret"></b>
+                            </span>
+            </a>
+            <ul class="dropdown-menu">
+                <li data-active-menu="{{key}}" data-ng-repeat="(key, language) in languages">
+                    <a href="javascript:;" ng-click="changeLanguage(key)">{{language}}</a>
+                </li>
+            </ul>
+        </li> -->
+
+    </div>
+</div>
+
+<!-- Google Analytics: uncomment and change UA-XXXXX-X to be your site's ID.
+<script>
+    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+    function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+    e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+    e.src='//www.google-analytics.com/analytics.js';
+    r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+    ga('create','UA-XXXXX-X');ga('send','pageview');
+</script>
 
 
-        <!-- build:js scripts/scripts.js -->
-        <script src="bower_components/modernizr/modernizr.js"></script>
-        <script src="bower_components/jquery/dist/jquery.js"></script>
-        <script src="bower_components/angular/angular.js"></script>
-        <script src="bower_components/angular-route/angular-route.js"></script>
-        <script src="bower_components/angular-resource/angular-resource.js"></script>
-        <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-        <script src="bower_components/angular-translate/angular-translate.js"></script>
-        <script src="bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.js"></script>
-        <script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
-        <script src="bower_components/angular-dynamic-locale/src/tmhDinamicLocale.js"></script>
-        <script src="scripts/http-auth-interceptor.js"></script>
-        <script src="scripts/truncate.js"></script>
-        <script src="scripts/utils.js"></script>
-        <script src="scripts/app.js"></script>
-        <script src="scripts/constants.js"></script>
-        <script src="scripts/controllers.js"></script>
-        <script src="scripts/services.js"></script>
-        <script src="scripts/directives.js"></script>
-        <script src="scripts/custom.js"></script>
-        <script src="scripts/selectnav.js"></script>
-        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/affix.js"></script>
-        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/alert.js"></script>
-        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/dropdown.js"></script>
-        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/tooltip.js"></script>
-        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/modal.js"></script>
-        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/transition.js"></script>
-        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/button.js"></script>
-        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/popover.js"></script>
-        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/carousel.js"></script>
-        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/scrollspy.js"></script>
-        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/collapse.js"></script>
-        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/tab.js"></script>
-        <!-- endbuild -->
+<!-- build:js scripts/scripts.js -->
+<script src="bower_components/modernizr/modernizr.js"></script>
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="bower_components/angular-translate/angular-translate.js"></script>
+<script src="bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.js"></script>
+<script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
+<script src="bower_components/angular-dynamic-locale/src/tmhDinamicLocale.js"></script>
+<script src="scripts/http-auth-interceptor.js"></script>
+<script src="scripts/truncate.js"></script>
+<script src="scripts/utils.js"></script>
+<script src="scripts/app.js"></script>
+<script src="scripts/constants.js"></script>
+<script src="scripts/controllers.js"></script>
+<script src="scripts/services.js"></script>
+<script src="scripts/directives.js"></script>
+<script src="scripts/custom.js"></script>
+<script src="scripts/selectnav.js"></script>
+<script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/affix.js"></script>
+<script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/alert.js"></script>
+<script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/dropdown.js"></script>
+<script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/tooltip.js"></script>
+<script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/modal.js"></script>
+<script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/transition.js"></script>
+<script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/button.js"></script>
+<script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/popover.js"></script>
+<script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/carousel.js"></script>
+<script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/scrollspy.js"></script>
+<script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/collapse.js"></script>
+<script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/tab.js"></script>
+<!-- endbuild -->
 </body>
 </html>

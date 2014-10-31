@@ -1,3 +1,4 @@
+<li ng-switch-when="true"><a href="#/project"><span class="glyphicon glyphicon-asterisk"></span>&nbsp;project</a></li>
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -57,6 +58,7 @@
                      </a>
                      <ul class="dropdown-menu" ng-controller="MenuController">
                          -- JHipster will add entities to the menu here --
+                         <li ng-switch-when="true"><a href="#/projectgroup"><span class="glyphicon glyphicon-asterisk"></span>&nbsp;projectgroup</a></li>
                      </ul>
                  </li>
                  <li class="dropdown pointer">
@@ -156,18 +158,15 @@
                     <li><i class="icon-user"></i>+34 633 271 065</li>
                 </ul>
             </div>
-
         </div>
-
-
     </div>
     <!-- Header / End -->
 
     <!-- Navigation -->
-    <div id="navigation" class="">
+    <div id="navigation" ng-controller="MenuController">
         <ul id="nav" ng-switch="authenticated">
 
-            <li><a href="/" class="active">Home</a></li>
+            <li><a href="/" >Home</a></li>
 
             <li><a href="#">About Me</a>
                 <ul>
@@ -179,7 +178,14 @@
             </li>
             <li><a href="#">Projects</a>
                 <ul>
-                    <li><a href="#">Computer vision</a></li>
+                    <li><a href="#">Computer vision</a>
+
+
+                        <ul>
+                            <li ng-repeat="project in data.projectgroups"><a>{{project.description}}</a></li>
+                        </ul>
+
+                    </li>
                     <li><a href="http://www.delsys.net/soluciones_ADA_Bussines.php?ada=1&leng=2" target="_blank">Delsys Ada ERP</a></li>
                     <li><a href="#">Photo finish software</a></li>
                     <li><a href="http://www.helpmeproject.com" target="_blank">HelpMeProject</a></li>
@@ -232,6 +238,22 @@
                         &#xA0;<span translate="global.menu.account.register">Register</span></a></li>
                 </ul>
             </li>
+
+            <li ng-switch-when="true" class="dropdown pointer">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;">
+                         <span>
+                             <span class="glyphicon glyphicon-th-list"></span>
+                             <span class="hidden-tablet" translate="global.menu.entities.main">
+                                 Entities
+                             </span>
+                             <b class="caret"></b>
+                         </span>
+                </a>
+                <ul class="dropdown-menu" >
+                    <li ng-switch-when="true"><a href="#/projectgroup"><span class="glyphicon glyphicon-asterisk"></span>&nbsp;projectgroup</a></li>
+                </ul>
+            </li>
+
             <li ng-switch-when="true" ng-show="isAuthorized(userRoles.admin)" class="dropdown pointer" ng-controller="AdminController">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;">
                                 <span>
@@ -262,12 +284,13 @@
 </div>
 <!-- Navigation / End -->
 
-    <div class="container">
-        <div class="well" ng-view=""></div>
+    <div class="container" >
+        <div ng-view=""></div>
     </div>
+
 </div>
 <!-- Footer -->
-<div style="position:absolute; bottom:0;width: 100%">
+<div class="footer">
     <!-- Footer Top -->
     <div id="footer" class="container-fluid paddingbottom"  >
 
@@ -357,6 +380,12 @@
 <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/scrollspy.js"></script>
 <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/collapse.js"></script>
 <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/tab.js"></script>
+<script src="scripts/projectgroup/router_projectgroup.js"></script>
+<script src="scripts/projectgroup/controller_projectgroup.js"></script>
+<script src="scripts/projectgroup/service_projectgroup.js"></script>
+<script src="scripts/project/router_project.js"></script>
+<script src="scripts/project/controller_project.js"></script>
+<script src="scripts/project/service_project.js"></script>
 <!-- endbuild -->
 </body>
 </html>

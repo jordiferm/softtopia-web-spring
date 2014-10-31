@@ -22,7 +22,15 @@ softtopiawebApp.controller('LanguageController', function ($scope, $translate, L
         });
     });
 
-softtopiawebApp.controller('MenuController', function ($scope) {
+softtopiawebApp.controller('MenuController', function ($scope, ProjectGroup) {
+
+    $scope.data = {};
+    ProjectGroup.query().$promise.then(function(data) {
+         $scope.data.projectgroups = data;
+    });
+
+
+
     });
 
 softtopiawebApp.controller('LoginController', function ($scope, $location, AuthenticationSharedService) {

@@ -24,16 +24,17 @@ jQuery(document).ready(function() {
         });
 		
     })();
-	
-    /* Responsive Menu */
-    (function() {
+
+    //TODO: Angular directive here
+     /* Responsive Menu*/
+/*    (function() {
         selectnav('nav', {
             label: 'Menu',
             nested: true,
             indent: '-'
         });
-				
-    })();
+
+    })();*/
 
 
     /*----------------------------------------------------*/

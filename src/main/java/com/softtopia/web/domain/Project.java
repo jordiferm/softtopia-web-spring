@@ -6,6 +6,7 @@ import com.fasterxml.jackson.datatype.joda.deser.LocalDateDeserializer;
 import com.softtopia.web.domain.util.CustomLocalDateSerializer;
 import org.joda.time.LocalDate;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
@@ -42,6 +43,10 @@ public class Project implements Serializable {
 
     @Field("long_description")
     private String longDescription;
+
+    //@Field("project_group")
+    @DBRef
+    private ProjectGroup projectGroup;
 
     public String getId() {
         return id;
@@ -115,6 +120,14 @@ public class Project implements Serializable {
         return true;
     }
 
+    public ProjectGroup getProjectGroup() {
+        return projectGroup;
+    }
+
+    public void setProjectGroup(ProjectGroup projectGroup) {
+        this.projectGroup = projectGroup;
+    }
+
     @Override
     public int hashCode() {
         return id != null ? id.hashCode() : 0;
@@ -132,4 +145,5 @@ public class Project implements Serializable {
                 ", longDescription='" + longDescription + "'" +
                 '}';
     }
+
 }

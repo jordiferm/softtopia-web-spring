@@ -2,6 +2,8 @@ package com.softtopia.web.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import com.softtopia.web.domain.Project;
+import com.softtopia.web.domain.ProjectGroup;
+import com.softtopia.web.repository.ProjectGroupRepository;
 import com.softtopia.web.repository.ProjectRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,6 +28,9 @@ public class ProjectResource {
     @Inject
     private ProjectRepository projectRepository;
 
+    @Inject
+    private ProjectGroupRepository projectGroupRepository;
+
     /**
      * POST  /rest/projects -> Create a new project.
      */
@@ -34,7 +39,9 @@ public class ProjectResource {
             produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
     public void create(@RequestBody Project project) {
-        log.debug("REST request to save Project : {}", project);
+        //project.setProjectGroup(projectGroupRepository.findAll().get(0));
+        //log.debug("REST request to save Project : {}", project);
+
         projectRepository.save(project);
     }
 
@@ -46,8 +53,15 @@ public class ProjectResource {
             produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
     public List<Project> getAll() {
+        List<Project> projects = projectRepository.findAll();
         log.debug("REST request to get all Projects");
-        return projectRepository.findAll();
+        List<Project> projects2 = projectRepository.findByProjectGroup(projectGroupRepository.findAll().get(0));
+        for (Project project : projects2) {
+            log.debug("Projects of first project group ---- ");
+            log.debug(project.toString());
+        }
+
+        return projects;
     }
 
     /**

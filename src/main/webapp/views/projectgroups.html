@@ -76,3 +76,10 @@
         </table>
     </div>
 </div>
+
+        <h1>Groups with projects:</h1>
+        <div ng-repeat="group in projecGroupsWithProjects">{{group.description}}
+            <ul>
+                <li ng-repeat="project in group.projects"> {{project.id}} - {{project.name}}</li>
+            </ul>
+        </div>

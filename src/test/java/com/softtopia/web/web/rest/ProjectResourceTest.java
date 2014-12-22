@@ -8,6 +8,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import javax.inject.Inject;
+
+import com.softtopia.web.domain.ProjectGroup;
 import org.joda.time.LocalDate;
 
 import org.junit.Before;
@@ -118,6 +120,11 @@ public class ProjectResourceTest {
         project.setDateCreated(UPDATED_DATE_CREATED);
         project.setDateFinished(UPDATED_DATE_FINISHED);
         project.setLongDescription(UPDATED_LONG_DESCRIPTION);
+
+        ProjectGroup projectGroup = new ProjectGroup();
+        projectGroup.setId("1");
+        projectGroup.setDescription("Test Group");
+        project.setProjectGroup(projectGroup);
 
         restProjectMockMvc.perform(post("/app/rest/projects")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)

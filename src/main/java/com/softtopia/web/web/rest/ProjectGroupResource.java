@@ -1,8 +1,11 @@
 package com.softtopia.web.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
+import com.softtopia.web.domain.Project;
 import com.softtopia.web.domain.ProjectGroup;
 import com.softtopia.web.repository.ProjectGroupRepository;
+import com.softtopia.web.repository.ProjectRepository;
+import com.softtopia.web.security.AuthoritiesConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -10,6 +13,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
@@ -25,6 +29,9 @@ public class ProjectGroupResource {
 
     @Inject
     private ProjectGroupRepository projectgroupRepository;
+
+    @Inject
+    private ProjectRepository projectRepository;
 
     /**
      * POST  /rest/projectgroups -> Create a new projectgroup.
@@ -49,6 +56,19 @@ public class ProjectGroupResource {
         log.debug("REST request to get all ProjectGroups");
         return projectgroupRepository.findAll();
     }
+
+    /**
+     * GET  /rest/projectgroups/project -> get all the projectgroups by project id.
+     */
+    @RequestMapping(value = "/rest/projectgroups/{id}/projects",
+            method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public List<Project> getByProject(@PathVariable String id, HttpServletResponse response) {
+        log.debug("REST request to get all ProjectGroups of project : {}", id);
+        return projectRepository.findByProjectGroup(projectgroupRepository.findOne(id));
+    }
+
 
     /**
      * GET  /rest/projectgroups/:id -> get the "id" projectgroup.

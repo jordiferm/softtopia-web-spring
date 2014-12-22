@@ -124,4 +124,23 @@ angular.module('softtopiawebApp')
                 });
             }
         };
+    })
+    .directive('navigationMenu', function() {
+        return {
+            restrict: "A",
+            link: function(scope, element, attrs, formCtrl) {
+                var $mainNav    = $('#navigation').children('ul');
+                console.log("Main Navigator", $mainNav);
+
+                $mainNav.on('mouseenter', 'li', function() {
+                    var $this    = $(this),
+                        $subMenu = $this.children('ul');
+                    if( $subMenu.length ) $this.addClass('hover');
+                    $subMenu.hide().stop(true, true).slideDown('fast');
+                }).on('mouseleave', 'li', function() {
+                    $(this).removeClass('hover').children('ul').stop(true, true).slideUp('fast');
+                });
+
+            }
+        };
     });

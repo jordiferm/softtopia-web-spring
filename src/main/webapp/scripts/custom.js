@@ -9,22 +9,6 @@ jQuery(document).ready(function() {
     /*	Main Navigation
 /*----------------------------------------------------*/
 
-    /* Menu */
-    (function() {
-
-        var $mainNav    = $('#navigation').children('ul');
-
-        $mainNav.on('mouseenter', 'li', function() {
-            var $this    = $(this),
-            $subMenu = $this.children('ul');
-            if( $subMenu.length ) $this.addClass('hover');
-            $subMenu.hide().stop(true, true).slideDown('fast');
-        }).on('mouseleave', 'li', function() {
-            $(this).removeClass('hover').children('ul').stop(true, true).slideUp('fast');
-        });
-		
-    })();
-
     //TODO: Angular directive here
      /* Responsive Menu*/
 /*    (function() {
@@ -65,7 +49,7 @@ jQuery(document).ready(function() {
     /*----------------------------------------------------*/
     /*	Fancybox
 /*----------------------------------------------------*/
-    (function() {
+/*    (function() {
 
         $('[rel=image]').fancybox({
             type        : 'image',
@@ -94,7 +78,7 @@ jQuery(document).ready(function() {
 	
 	
     })();
-	
+	*/
         // tooltip for social media
     $('.tooltip-demo').tooltip({
       selector: "a[rel=tooltip]"

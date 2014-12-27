@@ -12,3 +12,7 @@ admin:admin
 
 See also:
 http://jhipster.github.io/development.html
+
+--- Integrations ---  
+
+Used Wordpress API: https://developer.wordpress.com/docs/api/

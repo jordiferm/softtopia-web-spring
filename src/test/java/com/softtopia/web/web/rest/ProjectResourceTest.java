@@ -154,4 +154,11 @@ public class ProjectResourceTest {
                 .andExpect(status().isNotFound());
 
     }
+
+    @Test
+    public void testGetProjectBody() throws  Exception {
+        restProjectMockMvc.perform(get("/app/rest/project-body/{id}", DEFAULT_ID))
+                        .andExpect(status().isOk())
+                        .andExpect(content().contentType(MediaType.APPLICATION_JSON));
+    }
 }

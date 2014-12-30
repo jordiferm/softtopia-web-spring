@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletResponse;
@@ -91,4 +92,28 @@ public class ProjectResource {
         log.debug("REST request to delete Project : {}", id);
         projectRepository.delete(id);
     }
+
+    @RequestMapping(value="/rest/project-body/{id}",
+            method= RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<WordpressPost> getBody(@PathVariable String id) {
+        RestTemplate restTemplate = new RestTemplate();
+        WordpressPost post = restTemplate.getForObject("https://public-api.wordpress.com/rest/v1/sites/jordiferm.wordpress.com/posts/4", WordpressPost.class);
+        //TODO: Get postId from project, and return it.
+        return new ResponseEntity<WordpressPost>(post, HttpStatus.OK);
+    }
+
+    @RequestMapping(value="/rest/project-body-html/{id}",
+            method= RequestMethod.GET,
+            produces = MediaType.TEXT_HTML_VALUE)
+    @Timed
+    public ResponseEntity<String> getBodyHtml(@PathVariable String id) {
+        RestTemplate restTemplate = new RestTemplate();
+        WordpressPost post = restTemplate.getForObject("https://public-api.wordpress.com/rest/v1/sites/jordiferm.wordpress.com/posts/4", WordpressPost.class);
+
+        return new ResponseEntity<>(post.getContent(), HttpStatus.OK);
+    }
+
+
 }

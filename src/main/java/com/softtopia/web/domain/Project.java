@@ -31,6 +31,9 @@ public class Project implements Serializable {
     @Field("picture")
     private String picture;
 
+    @Field("post_id")
+    private String postId;
+
     @JsonDeserialize(using = LocalDateDeserializer.class)
     @JsonSerialize(using = CustomLocalDateSerializer.class)
     @Field("date_created")
@@ -54,6 +57,14 @@ public class Project implements Serializable {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getPostId() {
+        return postId;
+    }
+
+    public void setPostId(String postId) {
+        this.postId = postId;
     }
 
     public String getName() {

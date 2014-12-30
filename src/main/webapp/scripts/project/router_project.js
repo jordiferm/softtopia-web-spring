@@ -9,6 +9,9 @@ softtopiawebApp
                     resolve:{
                         resolvedProject: ['Project', function (Project) {
                             return Project.query();
+                        }],
+                        resolvedProjectGroups: ['ProjectGroup', function(ProjectGroup) {
+                            return ProjectGroup.query();
                         }]
                     },
                     access: {

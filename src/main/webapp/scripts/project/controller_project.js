@@ -1,8 +1,9 @@
 'use strict';
 
-softtopiawebApp.controller('ProjectController', function ($scope, resolvedProject, Project) {
+softtopiawebApp.controller('ProjectController', function ($scope, resolvedProject, resolvedProjectGroups, Project, ProjectGroup) {
 
         $scope.projects = resolvedProject;
+        $scope.projectGroups = resolvedProjectGroups;
 
         $scope.create = function () {
             Project.save($scope.project,

@@ -11,7 +11,7 @@
             <div class="modal-content">
                 <form name="form" role="form" novalidate
                       class="ng-scope ng-invalid ng-invalid-required ng-dirty ng-valid-minlength"
-                      ng-submit="create()">
+                      >
 
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
@@ -24,11 +24,19 @@
                             <input type="text" class="form-control" name="id"
                                    ng-model="project.id" readonly>
                         </div>
-
                         <div class="form-group">
                             <label>name</label>
                             <input type="text" class="form-control"
                                    ng-model="project.name">
+                        </div>
+                        <div class="form-group">
+                            <label>group</label>
+                            <ui-select ng-model="project.projectGroup" theme="bootstrap" ng-disabled="disabled" style="width: 300px;">
+                                <ui-select-match placeholder="Select projectGroup...">{{$select.selected.description}}</ui-select-match>
+                                <ui-select-choices repeat="projectGroup in projectGroups | filter: $select.search">
+                                    <span ng-bind="projectGroup.description | highlight: $select.search"></span>
+                                </ui-select-choices>
+                            </ui-select>
                         </div>
                         <div class="form-group">
                             <label>description</label>
@@ -62,7 +70,7 @@
                         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
                             <span class="glyphicon glyphicon-ban-circle"></span> Cancel
                         </button>
-                        <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">
+                        <button ng-click="create()" ng-disabled="form.$invalid" class="btn btn-primary">
                             <span class="glyphicon glyphicon-save"></span> Save
                         </button>
                     </div>

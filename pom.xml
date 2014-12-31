@@ -263,6 +263,24 @@
         </resources>
         <pluginManagement>
             <plugins>
+                <!-- Heroku deployment -->
+                <!-- Note: TODO: Use: (minus)(minus)spring.profiles.active=prod  -->
+                <plugin>
+                    <groupId>com.heroku.sdk</groupId>
+                    <artifactId>heroku-maven-plugin</artifactId>
+                    <version>0.1.9</version>
+                    <configuration>
+                        <jdkVersion>1.8</jdkVersion>
+                        <appName>softtopiawebspring</appName>
+                        <configVars>
+                            <JAVA_OPTS>-Xss512k -XX:+UseCompressedOops</JAVA_OPTS>
+                        </configVars>
+                        <processTypes>
+                            <web>java $JAVA_OPTS -jar target/*.war --spring.profiles.active=prod --server.port=$PORT  --spring.data.mongodb.host=ds0.mongolab.com --spring.data.mongodb.port=63170 --spring.data.mongodb.database=heroku_app32456659 --spring.data.mongodb.username=heroku_app32456659 --spring.data.mongodb.password=re7lo1khhk3lacfi64ims30hml</web>
+                        </processTypes>
+                    </configuration>
+                </plugin>
+
                 <!--This plugin's configuration is used to store Eclipse m2e settings
                 only. It has no influence on the Maven build itself.-->
                 <plugin>

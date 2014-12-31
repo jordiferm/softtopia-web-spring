@@ -79,13 +79,13 @@ jQuery(document).ready(function() {
 	
     })();
 	*/
-        // tooltip for social media
+/*        // tooltip for social media
     $('.tooltip-demo').tooltip({
       selector: "a[rel=tooltip]"
     })
     //tool tip for tool tips shortcode
     $('.tooltips').tooltip({
       selector: "a[rel=tooltip]"
-    })
+    })*&
 /* ------------------ End Document ------------------ */
 });

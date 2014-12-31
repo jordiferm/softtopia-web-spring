@@ -5,6 +5,7 @@ import com.softtopia.web.domain.Project;
 import com.softtopia.web.domain.ProjectGroup;
 import com.softtopia.web.repository.ProjectGroupRepository;
 import com.softtopia.web.repository.ProjectRepository;
+import com.softtopia.web.security.AuthoritiesConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -13,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
@@ -38,6 +40,7 @@ public class ProjectResource {
     @RequestMapping(value = "/rest/projects",
             method = RequestMethod.POST,
             produces = MediaType.APPLICATION_JSON_VALUE)
+    @RolesAllowed(AuthoritiesConstants.ADMIN)
     @Timed
     public void create(@RequestBody Project project) {
         //project.setProjectGroup(projectGroupRepository.findAll().get(0));
@@ -87,6 +90,7 @@ public class ProjectResource {
     @RequestMapping(value = "/rest/projects/{id}",
             method = RequestMethod.DELETE,
             produces = MediaType.APPLICATION_JSON_VALUE)
+    @RolesAllowed(AuthoritiesConstants.ADMIN)
     @Timed
     public void delete(@PathVariable String id) {
         log.debug("REST request to delete Project : {}", id);
@@ -98,9 +102,11 @@ public class ProjectResource {
             produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
     public ResponseEntity<WordpressPost> getBody(@PathVariable String id) {
+        Project project = projectRepository.findOne(id);
+        String postId = project.getPostId();
+
         RestTemplate restTemplate = new RestTemplate();
-        WordpressPost post = restTemplate.getForObject("https://public-api.wordpress.com/rest/v1/sites/jordiferm.wordpress.com/posts/4", WordpressPost.class);
-        //TODO: Get postId from project, and return it.
+        WordpressPost post = restTemplate.getForObject("https://public-api.wordpress.com/rest/v1/sites/jordiferm.wordpress.com/posts/" + postId, WordpressPost.class);
         return new ResponseEntity<WordpressPost>(post, HttpStatus.OK);
     }
 

@@ -15,7 +15,7 @@ softtopiawebApp
                         }]
                     },
                     access: {
-                        authorizedRoles: [USER_ROLES.all]
+                        authorizedRoles: [USER_ROLES.admin]
                     }
                 })
         });

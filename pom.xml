@@ -276,7 +276,7 @@
                             <JAVA_OPTS>-Xss512k -XX:+UseCompressedOops</JAVA_OPTS>
                         </configVars>
                         <processTypes>
-                            <web>java $JAVA_OPTS -jar target/*.war --spring.profiles.active=prod --server.port=$PORT  --spring.data.mongodb.host=ds0.mongolab.com --spring.data.mongodb.port=63170 --spring.data.mongodb.database=heroku_app32456659 --spring.data.mongodb.username=heroku_app32456659 --spring.data.mongodb.password=re7lo1khhk3lacfi64ims30hml</web>
+                            <web>java $JAVA_OPTS -jar target/*.war --spring.profiles.active=prod --server.port=$PORT  --spring.data.mongodb.host=ds029901.mongolab.com --spring.data.mongodb.port=29901 --spring.data.mongodb.database=heroku_app32935963 --spring.data.mongodb.username=heroku_app32935963 --spring.data.mongodb.password=3kr60jhv0sgoq9pqdns2d3ro2l</web>
                         </processTypes>
                     </configuration>
                 </plugin>

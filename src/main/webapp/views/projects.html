@@ -30,6 +30,11 @@
                                    ng-model="project.name">
                         </div>
                         <div class="form-group">
+                            <label>PostID</label>
+                            <input type="text" class="form-control"
+                                   ng-model="project.postId">
+                        </div>
+                        <div class="form-group">
                             <label>group</label>
                             <ui-select ng-model="project.projectGroup" theme="bootstrap" ng-disabled="disabled" style="width: 300px;">
                                 <ui-select-match placeholder="Select projectGroup...">{{$select.selected.description}}</ui-select-match>
@@ -58,13 +63,6 @@
                             <input type="date" class="form-control"
                                    ng-model="project.dateFinished">
                         </div>
-                        <div class="form-group">
-                            <label>longDescription</label>
-                            <input type="text" class="form-control"
-                                   ng-model="project.longDescription">
-                        </div>
-
-
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
@@ -83,25 +81,21 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>ID</th>
                     <th>name</th>
+                    <th>PostId</th>
                     <th>description</th>
-                    <th>picture</th>
                     <th>dateCreated</th>
                     <th>dateFinished</th>
-                    <th>longDescription</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="project in projects">
-                    <td>{{project.id}}</td>
                     <td>{{project.name}}</td>
+                    <td>{{project.postId}}</td>
                     <td>{{project.description}}</td>
-                    <td>{{project.picture}}</td>
                     <td>{{project.dateCreated}}</td>
                     <td>{{project.dateFinished}}</td>
-                    <td>{{project.longDescription}}</td>
                     <td>
                         <button type="submit"
                                 ng-click="update(project.id)"

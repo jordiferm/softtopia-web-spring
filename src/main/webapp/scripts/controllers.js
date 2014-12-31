@@ -22,15 +22,20 @@ softtopiawebApp.controller('LanguageController', function ($scope, $translate, L
         });
     });
 
-softtopiawebApp.controller('MenuController', function ($scope, ProjectGroup) {
+softtopiawebApp.controller('MenuController', function ($scope, ProjectGroup, RestangularProjectGroup) {
 
-    $scope.data = {};
-    ProjectGroup.query().$promise.then(function(data) {
-         $scope.data.projectgroups = data;
-    });
+        $scope.data = {};
+        ProjectGroup.query().$promise.then(function(data) {
+             $scope.data.projectgroups = data;
+        });
 
-
-
+        RestangularProjectGroup.projectGroups.getList().then(function(groups) {
+            groups.map(function(group) {
+                var res = group;
+                res.projects = RestangularProjectGroup.projectGroup(group.id).projects.getList().$object;
+            });
+            $scope.projecGroupsWithProjects = groups;
+        });
     });
 
 softtopiawebApp.controller('LoginController', function ($scope, $location, AuthenticationSharedService) {
@@ -300,3 +305,12 @@ softtopiawebApp.controller('AuditsController', function ($scope, $translate, $fi
             $scope.audits = data;
         });
     });
+
+softtopiawebApp.controller('ShowProjectController', function ($scope, $routeParams, Project, ProjectBody) {
+
+    $scope.project = Project.get({ id:  $routeParams.id });
+    $scope.projectBody = ProjectBody.get({ id:  $routeParams.id });
+
+
+
+});

@@ -41,7 +41,7 @@ public class ProjectResource {
     @Timed
     public void create(@RequestBody Project project) {
         //project.setProjectGroup(projectGroupRepository.findAll().get(0));
-        //log.debug("REST request to save Project : {}", project);
+        log.debug("REST request to save Project : {}", project);
 
         projectRepository.save(project);
     }

@@ -6,3 +6,10 @@ softtopiawebApp.factory('Project', function ($resource) {
             'get': { method: 'GET'}
         });
     });
+
+softtopiawebApp.factory('ProjectBody', function($resource) {
+   return $resource('app/rest/project-body/:id', {}, {
+       'get' : { method: 'GET'}
+   });
+
+});

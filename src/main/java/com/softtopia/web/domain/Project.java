@@ -44,9 +44,6 @@ public class Project implements Serializable {
     @Field("date_finished")
     private LocalDate dateFinished;
 
-    @Field("long_description")
-    private String longDescription;
-
     //@Field("project_group")
     @DBRef
     private ProjectGroup projectGroup;
@@ -107,13 +104,6 @@ public class Project implements Serializable {
         this.dateFinished = dateFinished;
     }
 
-    public String getLongDescription() {
-        return longDescription;
-    }
-
-    public void setLongDescription(String longDescription) {
-        this.longDescription = longDescription;
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -153,7 +143,6 @@ public class Project implements Serializable {
                 ", picture='" + picture + "'" +
                 ", dateCreated='" + dateCreated + "'" +
                 ", dateFinished='" + dateFinished + "'" +
-                ", longDescription='" + longDescription + "'" +
                 '}';
     }
 

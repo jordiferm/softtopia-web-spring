@@ -27,6 +27,6 @@ softtopiawebApp.controller('ProjectController', function ($scope, resolvedProjec
         };
 
         $scope.clear = function () {
-            $scope.project = {name: null, description: null, picture: null, dateCreated: null, dateFinished: null, longDescription: null, id: null};
+            $scope.project = {name: null, description: null, picture: null, dateCreated: null, dateFinished: null, id: null};
         };
     });

@@ -3,7 +3,9 @@
 /* App Module */
 
 var softtopiawebApp = angular.module('softtopiawebApp', ['http-auth-interceptor', 'tmh.dynamicLocale',
-    'ngResource', 'ngRoute', 'ngCookies', 'softtopiawebAppUtils', 'pascalprecht.translate', 'truncate', 'restangular', 'ui.select']);
+    'ngResource', 'ngRoute', 'ngCookies', 'ngSanitize',
+    'softtopiawebAppUtils', 'pascalprecht.translate', 'truncate',
+    'restangular', 'ui.select']);
 
 softtopiawebApp
     .config(function ($routeProvider, $httpProvider, $translateProvider, tmhDynamicLocaleProvider, RestangularProvider, USER_ROLES) {
@@ -105,6 +107,19 @@ softtopiawebApp
                     templateUrl: 'views/docs.html',
                     access: {
                         authorizedRoles: [USER_ROLES.admin]
+                    }
+                })
+                .when('/puta', {
+                    templateUrl: 'views/docs.html',
+                    access: {
+                        authorizedRoles: [USER_ROLES.admin]
+                    }
+                })
+                .when('/show_project', {
+                    templateUrl: 'views/show_project.html',
+                    controller: 'ShowProjectController',
+                    access: {
+                        authorizedRoles: [USER_ROLES.all]
                     }
                 })
                 .otherwise({

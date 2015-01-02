@@ -5,10 +5,13 @@ spring:
     profiles: prod
     data:
         mongodb:
-            host: localhost
-            port: 27017
-            databaseName: softtopiaweb
-    
+            databaseName: heroku_app32935963
+            host: ds029901.mongolab.com
+            port: 29901
+            database: heroku_app32935963
+            username: heroku_app32935963
+            password: 3kr60jhv0sgoq9pqdns2d3ro2l
+
 
     mail:
         baseUrl: http://localhost:8080

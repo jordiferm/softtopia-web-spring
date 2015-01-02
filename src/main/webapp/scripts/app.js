@@ -5,7 +5,8 @@
 var softtopiawebApp = angular.module('softtopiawebApp', ['http-auth-interceptor', 'tmh.dynamicLocale',
     'ngResource', 'ngRoute', 'ngCookies', 'ngSanitize',
     'softtopiawebAppUtils', 'pascalprecht.translate', 'truncate',
-    'restangular', 'ui.select']);
+    'restangular', 'ui.select',
+    'angular-flexslider']);
 
 softtopiawebApp
     .config(function ($routeProvider, $httpProvider, $translateProvider, tmhDynamicLocaleProvider, RestangularProvider, USER_ROLES) {

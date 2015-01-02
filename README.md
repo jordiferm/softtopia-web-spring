@@ -16,3 +16,7 @@ http://jhipster.github.io/development.html
 --- Integrations ---  
 
 Used Wordpress API: https://developer.wordpress.com/docs/api/
+
+
+- Deploy: 
+Use: #~/bin/apache-maven-3.2.3/bin/mvn -Pprod heroku:deploy

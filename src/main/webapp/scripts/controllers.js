@@ -3,6 +3,14 @@
 /* Controllers */
 
 softtopiawebApp.controller('MainController', function ($scope) {
+
+    $scope.slides = [
+        'http://www.miraclestudios.in/blog/wp-content/uploads/2014/08/maxresdefault.jpg',
+        'http://upload.wikimedia.org/wikipedia/fr/9/9c/Qt_Software_logo.png',
+        'http://www.businesskorea.co.kr/sites/default/files/field/image/html5.jpg',
+        'http://www.theprospect.net/wp-content/uploads/2014/05/ComputerScienceCloud.png'
+    ]
+
     });
 
 softtopiawebApp.controller('AdminController', function ($scope) {

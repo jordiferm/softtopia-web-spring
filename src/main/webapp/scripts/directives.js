@@ -143,4 +143,16 @@ angular.module('softtopiawebApp')
 
             }
         };
+    })
+    .directive('scrollToTop', function() {
+        return {
+            restrict: "A",
+            link: function(scope, element, attrs, formCtrl) {
+                element.bind('click', function(event) {
+                    jQuery('html, body').animate({
+                        scrollTop:0
+                    }, 300);
+                });
+            }
+        };
     });

@@ -39,6 +39,7 @@ jQuery(document).ready(function() {
 /*----------------------------------------------------*/
 
     jQuery('#scroll-top-top a').click(function(){
+        console.log("Scroll to top");
         jQuery('html, body').animate({
             scrollTop:0
         }, 300); 

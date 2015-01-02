@@ -104,6 +104,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/app/rest/projectgroups/**").permitAll()
                 .antMatchers("/app/rest/projects/**").permitAll()
                 .antMatchers("/app/rest/project-body/**").permitAll()
+                .antMatchers("/app/rest/account").permitAll()
+                .antMatchers("/app/rest/technologys").permitAll()
                 .antMatchers("/app/rest/logs/**").hasAuthority(AuthoritiesConstants.ADMIN)
                 .antMatchers("/app/**").authenticated()
                 .antMatchers("/metrics/**").hasAuthority(AuthoritiesConstants.ADMIN)

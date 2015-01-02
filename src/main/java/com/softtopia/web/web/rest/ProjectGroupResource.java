@@ -39,6 +39,7 @@ public class ProjectGroupResource {
     @RequestMapping(value = "/rest/projectgroups",
             method = RequestMethod.POST,
             produces = MediaType.APPLICATION_JSON_VALUE)
+    @RolesAllowed(AuthoritiesConstants.ADMIN)
     @Timed
     public void create(@RequestBody ProjectGroup projectgroup) {
         log.debug("REST request to save ProjectGroup : {}", projectgroup);
@@ -92,6 +93,7 @@ public class ProjectGroupResource {
     @RequestMapping(value = "/rest/projectgroups/{id}",
             method = RequestMethod.DELETE,
             produces = MediaType.APPLICATION_JSON_VALUE)
+    @RolesAllowed(AuthoritiesConstants.ADMIN)
     @Timed
     public void delete(@PathVariable String id) {
         log.debug("REST request to delete ProjectGroup : {}", id);

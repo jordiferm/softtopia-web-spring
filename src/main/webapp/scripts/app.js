@@ -110,12 +110,6 @@ softtopiawebApp
                         authorizedRoles: [USER_ROLES.admin]
                     }
                 })
-                .when('/puta', {
-                    templateUrl: 'views/docs.html',
-                    access: {
-                        authorizedRoles: [USER_ROLES.admin]
-                    }
-                })
                 .when('/show_project', {
                     templateUrl: 'views/show_project.html',
                     controller: 'ShowProjectController',
@@ -152,8 +146,7 @@ softtopiawebApp
                 $rootScope.$on('$routeChangeStart', function (event, next) {
                     $rootScope.isAuthorized = AuthenticationSharedService.isAuthorized;
                     $rootScope.userRoles = USER_ROLES;
-                    if (next.access.authorizedRoles != USER_ROLES.all)
-                        AuthenticationSharedService.valid(next.access.authorizedRoles);
+                    AuthenticationSharedService.valid(next.access.authorizedRoles);
                 });
 
                 // Call when the the client is confirmed

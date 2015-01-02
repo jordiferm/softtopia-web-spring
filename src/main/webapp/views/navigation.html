@@ -2,7 +2,7 @@
 <div navigation-menu="" id="navigation" ng-controller="MenuController">
     <ul id="nav" ng-switch="authenticated">
 
-        <li><a href="/" >Home</a></li>
+        <li><a href="/">Home</a></li>
 
         <li><a href="#">About Me</a>
             <ul>
@@ -25,22 +25,6 @@
                 </li>
 
             </ul>
-<!--            <ul>
-                <li><a href="#">Computer vision</a>
-
-
-                    <ul>
-                        <li ng-repeat="project in data.projectgroups"><a>{{project.description}}</a></li>
-                    </ul>
-
-                </li>
-                <li><a href="http://www.delsys.net/soluciones_ADA_Bussines.php?ada=1&leng=2" target="_blank">Delsys Ada ERP</a></li>
-                <li><a href="#">Photo finish software</a></li>
-                <li><a href="http://www.helpmeproject.com" target="_blank">HelpMeProject</a></li>
-                <li><a href="http://gimp-print.sourceforge.net/index.php" target="_blank">Printer drivers</a></li>
-                <li><a href="http://www.mycolorbox.net" target="_blank">Color Management</a></li>
-                <li><a href="http://arctecno.herokuapp.com" target="_blank">Project management WepApps</a></li>
-            </ul> -->
         </li>
 
         <li><a href="blog.html">Technologies</a>
@@ -61,48 +45,41 @@
             </ul>
         </li>
 
-        <li><a href="#" ng-switch-when="true" >User</a>
+        <li><a href="#" ng-switch-when="true">User</a>
             <ul>
-                <li ><a href="#/settings"><span class="glyphicon glyphicon-wrench"></span>
+                <li><a href="#/settings"><span class="glyphicon glyphicon-wrench"></span>
                     &#xA0;<span translate="global.menu.account.settings">Settings</span></a></li>
-                <li ><a href="#/password"><span class="glyphicon glyphicon-lock"></span>
+                <li><a href="#/password"><span class="glyphicon glyphicon-lock"></span>
                     &#xA0;<span translate="global.menu.account.password">Password</span></a></li>
-                <li ><a href="#/sessions"><span class="glyphicon glyphicon-cloud"></span>
+                <li><a href="#/sessions"><span class="glyphicon glyphicon-cloud"></span>
                     &#xA0;<span translate="global.menu.account.sessions">Sessions</span></a></li>
-                <li ><a href="#/logout"><span class="glyphicon glyphicon-log-out"></span>
+                <li ng-switch-when="true"><a href="#/logout"><span class="glyphicon glyphicon-log-out"></span>
                     &#xA0;<span translate="global.menu.account.logout">Log out</span></a></li>
-                <li ng-switch-when="false"><a href="#/login"><span class="glyphicon glyphicon-log-in"></span>
-                    &#xA0;<span translate="global.menu.account.login">Authenticate</span></a></li>
-                <li ng-switch-when="false"><a href="#/register"><span class="glyphicon glyphicon-plus-sign"></span>
-                    &#xA0;<span translate="global.menu.account.register">Register</span></a></li>
-            </ul>
-        </li>
-        <li><a href="#" ng-switch-when="false" >User</a>
-            <ul>
-                <li ><a href="#/login"><span class="glyphicon glyphicon-log-in"></span>
-                    &#xA0;<span translate="global.menu.account.login">Login</span></a></li>
-                <li ><a href="#/register"><span class="glyphicon glyphicon-plus-sign"></span>
-                    &#xA0;<span translate="global.menu.account.register">Register</span></a></li>
             </ul>
         </li>
 
         <li ng-switch-when="true" class="dropdown pointer">
             <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;">
-                         <span>
-                             <span class="glyphicon glyphicon-th-list"></span>
-                             <span class="hidden-tablet" translate="global.menu.entities.main">
-                                 Entities
-                             </span>
-                             <b class="caret"></b>
-                         </span>
+                 <span>
+                     <span class="glyphicon glyphicon-th-list"></span>
+                     <span class="hidden-tablet" translate="global.menu.entities.main">
+                         Entities
+                     </span>
+                     <b class="caret"></b>
+                 </span>
             </a>
-            <ul class="dropdown-menu" >
-                <li ng-switch-when="true"><a href="#/projectgroup"><span class="glyphicon glyphicon-asterisk"></span>&nbsp;projectgroup</a></li>
-                <li ng-switch-when="true"><a href="#/project"><span class="glyphicon glyphicon-asterisk"></span>&nbsp;project</a></li>
+            <ul class="dropdown-menu">
+                <li ng-switch-when="true"><a href="#/projectgroup"><span class="glyphicon glyphicon-asterisk"></span>&nbsp;projectgroup</a>
+                </li>
+                <li ng-switch-when="true"><a href="#/project"><span class="glyphicon glyphicon-asterisk"></span>&nbsp;project</a>
+                </li>
+                <li ng-switch-when="true"><a href="#/technology"><span class="glyphicon glyphicon-asterisk"></span>&nbsp;techologies</a>
+                </li>
             </ul>
         </li>
 
-        <li ng-switch-when="true" ng-show="isAuthorized(userRoles.admin)" class="dropdown pointer" ng-controller="AdminController">
+        <li ng-switch-when="true" ng-show="isAuthorized(userRoles.admin)" class="dropdown pointer"
+            ng-controller="AdminController">
             <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;">
                                 <span>
                                     <span class="glyphicon glyphicon-tower"></span>

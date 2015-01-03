@@ -30,7 +30,7 @@ softtopiawebApp.controller('LanguageController', function ($scope, $translate, L
         });
     });
 
-softtopiawebApp.controller('MenuController', function ($scope, ProjectGroup, RestangularProjectGroup) {
+softtopiawebApp.controller('MenuController', function ($scope, ProjectGroup, RestangularProjectGroup, Technology, Blog) {
 
         $scope.data = {};
         ProjectGroup.query().$promise.then(function(data) {
@@ -44,6 +44,15 @@ softtopiawebApp.controller('MenuController', function ($scope, ProjectGroup, Res
             });
             $scope.projecGroupsWithProjects = groups;
         });
+
+        Technology.query().$promise.then(function(data) {
+            $scope.data.technologies = data; 
+        });
+
+        Blog.query().$promise.then(function(data) {
+            $scope.data.blogs = data;
+        });
+
     });
 
 softtopiawebApp.controller('LoginController', function ($scope, $location, AuthenticationSharedService) {
@@ -318,7 +327,19 @@ softtopiawebApp.controller('ShowProjectController', function ($scope, $routePara
 
     $scope.project = Project.get({ id:  $routeParams.id });
     $scope.projectBody = ProjectBody.get({ id:  $routeParams.id });
+});
 
+softtopiawebApp.controller('ShowTechnologyController', function ($scope, $routeParams, Technology, TechnologyBody) {
 
+    $scope.technology = Technology.get({ id:  $routeParams.id });
+    $scope.technologyBody = TechnologyBody.get({ id:  $routeParams.id });
+});
 
+softtopiawebApp.controller('ShowBlogController', function ($scope, $routeParams, Blog, BlogBody) {
+
+    $scope.blog = Blog.get({ id:  $routeParams.id });
+    $scope.blogBody = BlogBody.get({ id:  $routeParams.id });
+});
+
+softtopiawebApp.controller('ProfileController', function ($scope) {
 });

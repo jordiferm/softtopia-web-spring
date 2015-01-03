@@ -6,6 +6,7 @@ import com.softtopia.web.domain.ProjectGroup;
 import com.softtopia.web.repository.ProjectGroupRepository;
 import com.softtopia.web.repository.ProjectRepository;
 import com.softtopia.web.security.AuthoritiesConstants;
+import com.softtopia.web.service.WordpresService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -45,7 +46,6 @@ public class ProjectResource {
     public void create(@RequestBody Project project) {
         //project.setProjectGroup(projectGroupRepository.findAll().get(0));
         log.debug("REST request to save Project : {}", project);
-
         projectRepository.save(project);
     }
 
@@ -105,9 +105,7 @@ public class ProjectResource {
         Project project = projectRepository.findOne(id);
         String postId = project.getPostId();
 
-        RestTemplate restTemplate = new RestTemplate();
-        WordpressPost post = restTemplate.getForObject("https://public-api.wordpress.com/rest/v1/sites/jordiferm.wordpress.com/posts/" + postId, WordpressPost.class);
-        return new ResponseEntity<WordpressPost>(post, HttpStatus.OK);
+        return new ResponseEntity<WordpressPost>(WordpresService.getPost(postId), HttpStatus.OK);
     }
 
     @RequestMapping(value="/rest/project-body-html/{id}",
@@ -115,9 +113,9 @@ public class ProjectResource {
             produces = MediaType.TEXT_HTML_VALUE)
     @Timed
     public ResponseEntity<String> getBodyHtml(@PathVariable String id) {
-        RestTemplate restTemplate = new RestTemplate();
-        WordpressPost post = restTemplate.getForObject("https://public-api.wordpress.com/rest/v1/sites/jordiferm.wordpress.com/posts/4", WordpressPost.class);
-
+        Project project = projectRepository.findOne(id);
+        String postId = project.getPostId();
+        WordpressPost post = WordpresService.getPost(postId);
         return new ResponseEntity<>(post.getContent(), HttpStatus.OK);
     }
 

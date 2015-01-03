@@ -117,6 +117,27 @@ softtopiawebApp
                         authorizedRoles: [USER_ROLES.all]
                     }
                 })
+                .when('/show_technology', {
+                    templateUrl: 'views/show_technology.html',
+                    controller: 'ShowTechnologyController',
+                    access: {
+                        authorizedRoles: [USER_ROLES.all]
+                    }
+                })
+                .when('/show_blog', {
+                    templateUrl: 'views/show_blog.html',
+                    controller: 'ShowBlogController',
+                    access: {
+                        authorizedRoles: [USER_ROLES.all]
+                    }
+                })
+                .when('/profile', {
+                    templateUrl: 'views/profile.html',
+                    controller: 'ProfileController',
+                    access: {
+                        authorizedRoles: [USER_ROLES.all]
+                    }
+                })
                 .otherwise({
                     templateUrl: 'views/main.html',
                     controller: 'MainController',

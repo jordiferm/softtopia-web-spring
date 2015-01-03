@@ -1,0 +1,17 @@
+<div class="row">
+    <!-- Page Title -->
+    <div id="page-title" >
+        <h2>Blog <span>/ {{blog.description}}</span></h2>
+    </div>
+    <!-- Page Title / End -->
+</div>
+
+<div class="row" >
+    <div class="col-md-8">
+        <div class="post post-page">
+            <div class="post-content">
+                <div ng-bind-html="blogBody.content"></div>
+            </div>
+        </div>
+    </div>
+</div>

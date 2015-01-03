@@ -1,0 +1,92 @@
+<div>
+
+    <h2>Technologies</h2>
+
+    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#saveTechnologyModal" ng-click="clear()">
+        <span class="glyphicon glyphicon-flash"></span> Create a new Technology
+    </button>
+    <div class="modal fade" id="saveTechnologyModal" tabindex="-1" role="dialog" aria-labelledby="myTechnologyLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="form" role="form" novalidate
+                      class="ng-scope ng-invalid ng-invalid-required ng-dirty ng-valid-minlength"
+                      ng-submit="create()">
+
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title" id="myTechnologyLabel">Create or edit a Technology</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>ID</label>
+                            <input type="text" class="form-control" name="id"
+                                   ng-model="technology.id" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label>description</label>
+                            <input type="text" class="form-control"
+                                   ng-model="technology.description">
+                        </div>
+                        <div class="form-group">
+                            <label>postId</label>
+                            <input type="text" class="form-control"
+                                   ng-model="technology.postId">
+                        </div>
+                        <div class="form-group">
+                            <label>Url</label>
+                            <input type="text" class="form-control"
+                                   ng-model="technology.url">
+                        </div>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span> Cancel
+                        </button>
+                        <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-save"></span> Save
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>description</th>
+                    <th>postId</th>
+                    <th>url</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="technology in technologys">
+                    <td>{{technology.id}}</td>
+                    <td>{{technology.description}}</td>
+                    <td>{{technology.postId}}</td>
+                    <td>{{technology.url}}</td>
+                    <td>
+                        <button type="submit"
+                                ng-click="update(technology.id)"
+                                class="btn">
+                            <span class="glyphicon glyphicon-pencil"></span> Edit
+                        </button>
+                        <button type="submit"
+                                ng-click="delete(technology.id)"
+                                class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove-circle"></span> Delete
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
